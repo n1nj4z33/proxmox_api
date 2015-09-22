@@ -28,11 +28,13 @@ class ProxmoxAPI(object):
         self.session.headers.update({'Accept': 'application/json'})
 
     def prepare_url(self, url):
-        '''Prepare url from methods url. Returns url STRING'''
+        '''Prepare url from methods url 
+        :return: string'''
         return '/'.join((self.url, url))
 
     def send_request(self, url=None, method=None, headers=None, data=None):
-        '''Send request and logging the response. Returns RESPONSE'''
+        '''Send request and logging the response
+        :return: Response Object'''
         url = self.prepare_url(url)
         LOGGER.info('Request url: %s', url)
         LOGGER.info('Request data: %s', data)
@@ -46,7 +48,7 @@ class ProxmoxAPI(object):
         return response
 
     def get_tokens(self, username, password, realm):
-        '''Get authtorization tokens. Returns TUPLE'''
+        '''Get authtorization tokens'''
         url = 'access/ticket'
         data = {'username': username,
                 'password': password,
@@ -59,7 +61,7 @@ class ProxmoxAPI(object):
         return ticket, token
 
     def auth(self, username, password, realm):
-        '''Update session cookie. Returns TUPLE'''
+        '''Update session cookie'''
         ticket, token = self.get_tokens(username,
                                         password,
                                         realm)
@@ -68,87 +70,87 @@ class ProxmoxAPI(object):
         return ticket, token
 
     def get_vmid(self):
-        '''Get next VM ID of cluster. Returns ID(INTEGER)'''
+        '''Get next id of cluster'''
         url = 'cluster/nextid'
         return self.send_request(url=url,
                                  method='GET')
 
     def get_nodes(self):
-        '''Get all nodes of server. Returns JSON'''
+        '''Get all nodes of server'''
         url = 'nodes'
         return self.send_request(url=url,
                                  method='GET')
 
     def get_task_status(self, node, upid):
-        '''Get node task status by UPID. Returns JSON'''
+        '''Get node task status by UPID'''
         url = 'nodes/%s/tasks/%s/status' % (node, upid)
         return self.send_request(url=url,
                                  method='GET')
 
     def get_storage_contents(self, node, storage):
-        '''Get all contents of node storage. Returns JSON'''
+        '''Get all contents of node storage'''
         url = 'nodes/%s/storage/%s/content' % (node, storage)
         return self.send_request(url=url,
                                  method='GET')
 
     def get_storage_volume_data(self, node, storage, volume):
-        '''Get node storage content info. Returns JSON'''
+        '''Get node storage content info'''
         url = 'nodes/%s/storage/%s/content/%s' % (node, storage, volume)
         return self.send_request(url=url,
                                  method='GET')
 
     def delete_storage_content(self, node, storage, filename):
-        '''Get node storage content info.'''
+        '''Get node storage content info'''
         url = 'nodes/%s/storage/%s/content/local:iso/%s' % (node, storage, filename)
         return self.send_request(url=url,
                                  method='DELETE')
 
     def create_vm(self, node, data):
-        '''Create new QEMU virtual machine. Returns JSON'''
+        '''Create new QEMU virtual machine'''
         url = 'nodes/%s/qemu' % node
         return self.send_request(url=url,
                                  method='POST',
                                  data=data)
 
     def get_all_vm(self, node):
-        '''Get all QEMU virtual machines. Returns JSON'''
+        '''Get all QEMU virtual machines'''
         url = 'nodes/%s/qemu' % node
         return self.send_request(url=url,
                                  method='GET')
 
     def get_vm_config(self, node, vmid):
-        '''Get QEMU virtual machine config. Returns JSON'''
+        '''Get QEMU virtual machine config'''
         url = 'nodes/%s/qemu/%s/config' % (node, vmid)
         return self.send_request(url=url,
                                  method='GET')
 
     def edit_vm(self, node, vmid, data):
-        '''Edit QEMU virtual machine params. Returns JSON'''
+        '''Edit QEMU virtual machine params'''
         url = 'nodes/%s/qemu/%s/config' % (node, vmid)
         return self.send_request(url=url,
                                  method='PUT',
                                  data=data)
 
     def start_vm(self, node, vmid):
-        '''Start QEMU virtual machine. Returns JSON'''
+        '''Start QEMU virtual machine'''
         url = 'nodes/%s/qemu/%s/status/start' % (node, vmid)
         return self.send_request(url=url,
                                  method='POST')
 
     def stop_vm(self, node, vmid):
-        '''Stop QEMU virtual machine. Returns JSON'''
+        '''Stop QEMU virtual machine'''
         url = 'nodes/%s/qemu/%s/status/stop' % (node, vmid)
         return self.send_request(url=url,
                                  method='POST')
 
     def delete_vm(self, node, vmid):
-        '''Delete QEMU virtual machine. Returns JSON'''
+        '''Delete QEMU virtual machine'''
         url = 'nodes/%s/qemu/%s' % (node, vmid)
         return self.send_request(url=url,
                                  method='DELETE')
 
     def send_key_vm(self, node, vmid, data):
-        '''Send key to QEMU virtual machine.'''
+        '''Send key to QEMU virtual machine'''
         url = 'nodes/%s/qemu/%s/sendkey' % (node, vmid)
         return self.send_request(url=url,
                                  method='PUT',

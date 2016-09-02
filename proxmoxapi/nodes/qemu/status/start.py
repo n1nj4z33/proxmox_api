@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for start resource."""
 
-from .resource import Resource
+from proxmoxapi.resource import Resource
 
 
 class Start(Resource):
@@ -30,7 +30,7 @@ class Start(Resource):
         """
         Start virtual machine.
 
-        :returns: :class:`UPID <.nodes.tasks.upid.UPID>`.
+        :returns: :class:`UPID <proxmoxapi.nodes.tasks.upid.UPID>`.
         """
         response = self._post()
         task_id = response.json()["data"]

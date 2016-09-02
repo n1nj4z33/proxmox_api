@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for storage resource."""
 
-from .resource import Resource
+from proxmoxapi.resource import Resource
 
 
 class Storage(Resource):
@@ -9,7 +9,7 @@ class Storage(Resource):
 
     def __init__(self, api, storage_id):
         """
-        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <proxmoxapi.api.ProxmoxAPI>`.
         :param str storage_id: The storage identifier.
         """
         super(Storage, self).__init__(api)

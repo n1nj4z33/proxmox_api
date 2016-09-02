@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Module for status resource."""
 
-from .resource import Resource
-from .nodes.qemu.status.start import Start
-from .nodes.qemu.status.stop import Stop
+from proxmoxapi.resource import Resource
+from proxmoxapi.nodes.qemu.status.start import Start
+from proxmoxapi.nodes.qemu.status.stop import Stop
 
 
 class Status(Resource):
@@ -33,7 +33,7 @@ class Status(Resource):
         """
         Property to get start resource.
 
-        :returns: :class:`Start <.nodes.qemu.status.start.Start>`.
+        :returns: :class:`Start <proxmoxapi.nodes.qemu.status.start.Start>`.
         """
         return Start(self.api, self.node_id, self.vm_id)
 
@@ -42,6 +42,6 @@ class Status(Resource):
         """
         Property to get stop resource.
 
-        :returns: :class:`Stop <.nodes.qemu.status.stop.Stop>`.
+        :returns: :class:`Stop <proxmoxapi.nodes.qemu.status.stop.Stop>`.
         """
         return Stop(self.api, self.node_id, self.vm_id)

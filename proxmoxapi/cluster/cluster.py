@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Module for cluster resource."""
 
-from .resource import Resource
-from .cluster.nextid import NextID
-from .cluster.tasks import Tasks
+from proxmoxapi.resource import Resource
+from proxmoxapi.cluster.nextid import NextID
+from proxmoxapi.cluster.tasks import Tasks
 
 
 class Cluster(Resource):
@@ -24,7 +24,7 @@ class Cluster(Resource):
         """
         Property to get nextid resource.
 
-        :returns: :class:`NextID <.cluster.nextid.NextID>`.
+        :returns: :class:`NextID <proxmoxapi.cluster.nextid.NextID>`.
         """
         return NextID(self.api)
 
@@ -33,6 +33,6 @@ class Cluster(Resource):
         """
         Property to get tasks resource.
 
-        :returns: :class:`Tasks <.cluster.tasks.Tasks>`.
+        :returns: :class:`Tasks <proxmoxapi.cluster.tasks.Tasks>`.
         """
         return Tasks(self.api)

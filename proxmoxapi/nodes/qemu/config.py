@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for config resource."""
 
-from .resource import Resource
+from proxmoxapi.resource import Resource
 
 
 class Config(Resource):
@@ -42,9 +42,8 @@ class Config(Resource):
         """
         Edit virtual machine.
 
-        :param options: The instance of
-            :class:`QemuVirtualMachineOptions
-            <.nodes.qemu.options.QemuVirtualMachineOptions>`.
+        :param options: The instance of :class:`QemuVirtualMachineOptions
+            <proxmoxapi.nodes.qemu.options.QemuVirtualMachineOptions>`.
 
         :returns: :class:`requests.Response`.
         """

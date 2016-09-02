@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for pool resource."""
 
-from .resource import Resource
+from proxmoxapi.resource import Resource
 
 
 class Pool(Resource):
@@ -9,7 +9,7 @@ class Pool(Resource):
 
     def __init__(self, api, pool_id):
         """
-        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <proxmoxapi.api.ProxmoxAPI>`.
         :param str pool_id: The pool identifier.
         """
         super(Pool, self).__init__(api)

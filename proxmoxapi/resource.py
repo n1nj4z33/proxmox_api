@@ -7,7 +7,7 @@ class Resource(object):
 
     def __init__(self, api):
         """
-        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <proxmoxapi.api.ProxmoxAPI>`.
         """
         self.api = api
 

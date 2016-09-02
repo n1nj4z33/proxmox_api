@@ -3,8 +3,8 @@
 
 from requests.exceptions import HTTPError
 
-from .resource import Resource
-from .nodes.qemu.vmid import VMID
+from proxmoxapi.resource import Resource
+from proxmoxapi.nodes.qemu.vmid import VMID
 
 
 class QEMU(Resource):
@@ -12,7 +12,7 @@ class QEMU(Resource):
 
     def __init__(self, api, node_id):
         """
-        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <proxmoxapi.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         """
         super(QEMU, self).__init__(api)
@@ -76,9 +76,8 @@ class QEMU(Resource):
         """
         Create or restore a virtual machine.
 
-        :param options: The instance of
-            :class:`QemuVirtualMachineOptions
-            <.nodes.qemu.options.QemuVirtualMachineOptions>`.
+        :param options: The instance of :class:`QemuVirtualMachineOptions
+            <proxmoxapi.nodes.qemu.options.QemuVirtualMachineOptions>`.
 
         :raises AlreadyExistError: if virtual machine exists.
         :raises HTTPError: if other http error occurred.
@@ -105,7 +104,7 @@ class QEMU(Resource):
 
         :param int vm_id: The (unique) ID of the VM.
 
-        :returns: :class:`VMID <.nodes.qemu.vmid.VMID>`.
+        :returns: :class:`VMID <proxmoxapi.nodes.qemu.vmid.VMID>`.
         """
         return VMID(self.api, self.node_id, vm_id)
 

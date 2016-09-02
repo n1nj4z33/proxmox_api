@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Module for nodes resource."""
 
-from .resource import Resource
-from .nodes.node import Node
+from proxmoxapi.resource import Resource
+from proxmoxapi.nodes.node import Node
 
 
 class Nodes(Resource):
@@ -24,7 +24,7 @@ class Nodes(Resource):
 
         :param str node_id: The cluster node name.
 
-        :returns: :class:`Node <.nodes.node.Node>`.
+        :returns: :class:`Node <proxmoxapi.nodes.node.Node>`.
         """
         return Node(self.api, node_id)
 
@@ -44,7 +44,7 @@ class Nodes(Resource):
 
         :param task_id: The UPID of task.
 
-        :returns: :class:`Node <.nodes.node.Node>`.
+        :returns: :class:`Node <proxmoxapi.nodes.node.Node>`.
         """
         node_id = task_id.split(":")[1]
         return self.node(node_id)

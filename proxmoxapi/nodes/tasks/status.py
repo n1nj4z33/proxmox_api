@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for status resource."""
 
-from .resource import Resource
+from proxmoxapi.resource import Resource
 
 
 class Status(Resource):
@@ -9,7 +9,7 @@ class Status(Resource):
 
     def __init__(self, api, node_id, task_id):
         """
-        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <proxmoxapi.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param str task_id: The task UPID.
         """

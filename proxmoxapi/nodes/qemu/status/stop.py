@@ -3,7 +3,7 @@
 Module for stop resource.
 """
 
-from .resource import Resource
+from proxmoxapi.resource import Resource
 
 
 class Stop(Resource):
@@ -34,7 +34,7 @@ class Stop(Resource):
         """
         Stop virtual machine.
 
-        :returns: :class:`UPID <.nodes.tasks.upid.UPID>`.
+        :returns: :class:`UPID <proxmoxapi.nodes.tasks.upid.UPID>`.
         """
         response = self._post()
         task_id = response.json()["data"]

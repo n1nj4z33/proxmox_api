@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Module for storages resource."""
 
-from .resource import Resource
-from .storage.storage import Storage
+from proxmoxapi.resource import Resource
+from proxmoxapi.storage.storage import Storage
 
 
 class Storages(Resource):
@@ -24,6 +24,6 @@ class Storages(Resource):
 
         :param str storage_id: The storage identifier.
 
-        :returns: :class:`Storage <.storage.storage.Storage>`.
+        :returns: :class:`Storage <proxmoxapi.storage.storage.Storage>`.
         """
         return Storage(self.api, storage_id)

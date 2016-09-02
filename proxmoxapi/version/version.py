@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for version resource."""
 
-from .resource import Resource
+from proxmoxapi.resource import Resource
 
 
 class Version(Resource):

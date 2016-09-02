@@ -5,10 +5,10 @@ import logging
 import time
 from requests.exceptions import HTTPError
 
-from proxmox_api.resource import Resource
-from proxmox_api.nodes.tasks.status import Status
-from proxmox_api.nodes.tasks.log import Log
-from proxmox_api.nodes.tasks import constants
+from .resource import Resource
+from .nodes.tasks.status import Status
+from .nodes.tasks.log import Log
+from .nodes.tasks import constants
 
 
 class UPID(Resource):
@@ -16,7 +16,7 @@ class UPID(Resource):
 
     def __init__(self, api, node_id, task_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmox_api.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param str task_id: The task UPID.
         """
@@ -30,7 +30,7 @@ class UPID(Resource):
         """
         Property to get status resource.
 
-        :returns: :class:`Status <proxmox_api.nodes.tasks.status.Status>`.
+        :returns: :class:`Status <.nodes.tasks.status.Status>`.
         """
         return Status(self.api, self.node_id, self.task_id)
 
@@ -39,7 +39,7 @@ class UPID(Resource):
         """
         Property to get log resource.
 
-        :returns: :class:`Log <proxmox_api.nodes.tasks.log.Log>`.
+        :returns: :class:`Log <.nodes.tasks.log.Log>`.
         """
         return Log(self.api, self.node_id, self.task_id)
 

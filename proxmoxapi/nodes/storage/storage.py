@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Module for storage_id resource."""
 
-from proxmox_api.resource import Resource
-from proxmox_api.nodes.storage.content.content import Content
-from proxmox_api.nodes.storage.upload import Upload
+from .resource import Resource
+from .nodes.storage.content.content import Content
+from .nodes.storage.upload import Upload
 
 
 class Storage(Resource):
@@ -11,7 +11,7 @@ class Storage(Resource):
 
     def __init__(self, api, node_id, storage_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmox_api.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param str storage_id: The storage identifier.
         """
@@ -33,7 +33,7 @@ class Storage(Resource):
         """
         Property to get content resource.
 
-        :returns: :class:`Content <proxmox_api.nodes.storage.content.Content>`.
+        :returns: :class:`Content <.nodes.storage.content.Content>`.
         """
         return Content(self.api, self.node_id, self.storage_id)
 
@@ -42,6 +42,6 @@ class Storage(Resource):
         """
         Property to get upload resource.
 
-        :returns: :class:`Upload <proxmox_api.nodes.storage.upload.Upload>`.
+        :returns: :class:`Upload <.nodes.storage.upload.Upload>`.
         """
         return Upload(self.api, self.node_id, self.storage_id)

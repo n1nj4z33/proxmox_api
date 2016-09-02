@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Module for content resource."""
 
-from proxmox_api.resource import Resource
-from proxmox_api.nodes.storage.content.volume import Volume
+from .resource import Resource
+from .nodes.storage.content.volume import Volume
 
 
 class Content(Resource):
@@ -10,7 +10,7 @@ class Content(Resource):
 
     def __init__(self, api, node_id, storage_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmox_api.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param str storage_id: The storage identifier.
         """
@@ -34,7 +34,7 @@ class Content(Resource):
         :param str volume_id: The volume identifier.
 
         :returns: The instanse of
-            :class:`Volume <proxmox_api.nodes.storage.content.volume.Volume>`.
+            :class:`Volume <.nodes.storage.content.volume.Volume>`.
         """
         return Volume(self.api, self.node_id, self.storage_id, volume_id)
 

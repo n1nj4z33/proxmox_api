@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for start resource."""
 
-from proxmox_api.resource import Resource
+from .resource import Resource
 
 
 class Start(Resource):
@@ -9,7 +9,7 @@ class Start(Resource):
 
     def __init__(self, api, node_id, vm_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmox_api.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param int vm_id: The (unique) ID of the VM.
         """
@@ -30,7 +30,7 @@ class Start(Resource):
         """
         Start virtual machine.
 
-        :returns: :class:`UPID <proxmox_api.nodes.tasks.upid.UPID>`.
+        :returns: :class:`UPID <.nodes.tasks.upid.UPID>`.
         """
         response = self._post()
         task_id = response.json()["data"]

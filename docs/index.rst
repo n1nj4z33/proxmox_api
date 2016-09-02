@@ -9,7 +9,7 @@ Welcome to proxmoxapi's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 6
 
    proxmoxapi
 

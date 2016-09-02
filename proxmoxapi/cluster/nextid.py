@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for cluster nextid resource."""
 
-from proxmox_api.resource import Resource
+from .resource import Resource
 
 
 class NextID(Resource):

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for log resource."""
 
-from proxmox_api.resource import Resource
+from .resource import Resource
 
 
 class Log(Resource):
@@ -9,7 +9,7 @@ class Log(Resource):
 
     def __init__(self, api, node_id, task_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmox_api.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param str task_id: The task UPID.
         """

@@ -3,8 +3,8 @@
 
 from requests.exceptions import HTTPError
 
-from proxmox_api.resource import Resource
-from proxmox_api.nodes.qemu.vmid import VMID
+from .resource import Resource
+from .nodes.qemu.vmid import VMID
 
 
 class QEMU(Resource):
@@ -12,7 +12,7 @@ class QEMU(Resource):
 
     def __init__(self, api, node_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmox_api.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         """
         super(QEMU, self).__init__(api)
@@ -78,12 +78,12 @@ class QEMU(Resource):
 
         :param options: The instance of
             :class:`QemuVirtualMachineOptions
-            <proxmox_api.nodes.qemu.options.QemuVirtualMachineOptions>`.
+            <.nodes.qemu.options.QemuVirtualMachineOptions>`.
 
         :raises AlreadyExistError: if virtual machine exists.
         :raises HTTPError: if other http error occurred.
 
-        :returns: :class:`UPID <proxmox_api.nodes.tasks.upid.UPID>`.
+        :returns: :class:`UPID <.nodes.tasks.upid.UPID>`.
         """
         ide = [ide_device.format_string() for ide_device in options.hdds + options.cdroms]
         net = [net_device.format_string() for net_device in options.nets]
@@ -105,7 +105,7 @@ class QEMU(Resource):
 
         :param int vm_id: The (unique) ID of the VM.
 
-        :returns: :class:`VMID <proxmox_api.nodes.qemu.vmid.VMID>`.
+        :returns: :class:`VMID <.nodes.qemu.vmid.VMID>`.
         """
         return VMID(self.api, self.node_id, vm_id)
 

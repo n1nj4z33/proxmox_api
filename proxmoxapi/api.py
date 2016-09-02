@@ -3,12 +3,12 @@
 
 import requests
 
-from proxmox_api.version.version import Version
-from proxmox_api.access.access import Access
-from proxmox_api.cluster.cluster import Cluster
-from proxmox_api.nodes.nodes import Nodes
-from proxmox_api.pools.pools import Pools
-from proxmox_api.storage.storages import Storages
+from .version.version import Version
+from .access.access import Access
+from .cluster.cluster import Cluster
+from .nodes.nodes import Nodes
+from .pools.pools import Pools
+from .storage.storages import Storages
 
 
 # InsecureRequestWarning: Unverified HTTPS request is being made.
@@ -47,7 +47,7 @@ class ProxmoxAPI(object):
         """
         Construct url from resource url.
 
-        :param resource: :class:`Resource <proxmox_api.resource.Resource>`.
+        :param resource: :class:`Resource <.resource.Resource>`.
 
         :returns: The full url to proxmox resource.
         """
@@ -58,7 +58,7 @@ class ProxmoxAPI(object):
         """
         Send request to proxmox server.
 
-        :param resource: :class:`Resource <proxmox_api.resource.Resource>`.
+        :param resource: :class:`Resource <.resource.Resource>`.
         :param str method: The HTTP request method.
         :param dict data: (optional) The HTTP request data.
         :param dict params: (optional) The HTTP request params.
@@ -89,7 +89,7 @@ class ProxmoxAPI(object):
         """
         Property for get version resource.
 
-        :returns: :class:`Version <proxmox_api.version.version.Version>`.
+        :returns: :class:`Version <.version.version.Version>`.
         """
         return Version(self)
 
@@ -98,7 +98,7 @@ class ProxmoxAPI(object):
         """
         Property for get access resource.
 
-        :returns: :class:`Access <proxmox_api.access.access.Access>`.
+        :returns: :class:`Access <.access.access.Access>`.
         """
         return Access(self)
 
@@ -107,7 +107,7 @@ class ProxmoxAPI(object):
         """
         Property for get cluster resource.
 
-        :returns: :class:`Cluster <proxmox_api.cluster.cluster.Cluster>`.
+        :returns: :class:`Cluster <.cluster.cluster.Cluster>`.
         """
         return Cluster(self)
 
@@ -116,7 +116,7 @@ class ProxmoxAPI(object):
         """
         Property for get nodes resource.
 
-        :returns: :class:`Nodes <proxmox_api.nodes.nodes.Nodes>`.
+        :returns: :class:`Nodes <.nodes.nodes.Nodes>`.
         """
         return Nodes(self)
 
@@ -125,7 +125,7 @@ class ProxmoxAPI(object):
         """
         Property for get pools resource.
 
-        :returns: :class:`Pools <proxmox_api.pools.pools.Pools>`.
+        :returns: :class:`Pools <.pools.pools.Pools>`.
         """
         return Pools(self)
 
@@ -134,6 +134,6 @@ class ProxmoxAPI(object):
         """
         Property for get storage resource.
 
-        :returns: :class:`Storages <proxmox_api.storage.storages.Storages>`.
+        :returns: :class:`Storages <.storage.storages.Storages>`.
         """
         return Storages(self)

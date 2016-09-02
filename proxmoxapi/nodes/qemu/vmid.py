@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """Module for vmid resource."""
 
-from proxmox_api.resource import Resource
-from proxmox_api.nodes.qemu.status.status import Status
-from proxmox_api.nodes.qemu.sendkey import SendKey
-from proxmox_api.nodes.qemu.config import Config
+from .resource import Resource
+from .nodes.qemu.status.status import Status
+from .nodes.qemu.sendkey import SendKey
+from .nodes.qemu.config import Config
 
 
 class VMID(Resource):
@@ -12,7 +12,7 @@ class VMID(Resource):
 
     def __init__(self, api, node_id, vm_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmox_api.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param int vm_id: The (unique) ID of the VM.
         """
@@ -41,7 +41,7 @@ class VMID(Resource):
         """
         Destroy the vm (also delete all used/owned volumes).
 
-        :returns: :class:`UPID <proxmox_api.nodes.tasks.upid.UPID>`.
+        :returns: :class:`UPID <.nodes.tasks.upid.UPID>`.
         """
         response = self._delete()
         task_id = response.json()["data"]
@@ -52,7 +52,7 @@ class VMID(Resource):
         """
         Property to get status resource.
 
-        :returns: :class:`Status <proxmox_api.nodes.qemu.status.status.Status>`.
+        :returns: :class:`Status <.nodes.qemu.status.status.Status>`.
         """
         return Status(self.api, self.node_id, self.vm_id)
 
@@ -61,7 +61,7 @@ class VMID(Resource):
         """
         Property to get sendkey resource.
 
-        :returns: :class:`SendKey <proxmox_api.nodes.qemu.sendkey.SendKey>`.
+        :returns: :class:`SendKey <.nodes.qemu.sendkey.SendKey>`.
         """
         return SendKey(self.api, self.node_id, self.vm_id)
 
@@ -70,6 +70,6 @@ class VMID(Resource):
         """
         Property to get config resource.
 
-        :returns: :class:`Config <proxmox_api.nodes.qemu.config.Config>`.
+        :returns: :class:`Config <.nodes.qemu.config.Config>`.
         """
         return Config(self.api, self.node_id, self.vm_id)

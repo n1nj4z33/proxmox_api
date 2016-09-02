@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for virtual machine device."""
 
-import proxmox_api.nodes.qemu.constants as constants
+import .nodes.qemu.constants as constants
 
 
 class QEMUVirtualMachineDevice(object):

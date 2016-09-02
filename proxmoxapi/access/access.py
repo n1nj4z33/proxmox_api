@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Module for access resource."""
 
-from proxmox_api.resource import Resource
-from proxmox_api.access.ticket import Ticket
+from .resource import Resource
+from .access.ticket import Ticket
 
 
 class Access(Resource):
@@ -23,6 +23,6 @@ class Access(Resource):
         """
         Property to get ticket resource.
 
-        :returns: :class:`Ticket <proxmox_api.access.ticket.Ticket>`.
+        :returns: :class:`Ticket <.access.ticket.Ticket>`.
         """
         return Ticket(self.api)

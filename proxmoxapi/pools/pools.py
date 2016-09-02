@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Module for pools resource."""
 
-from proxmox_api.resource import Resource
-from proxmox_api.pools.pool import Pool
+from .resource import Resource
+from .pools.pool import Pool
 
 
 class Pools(Resource):
@@ -24,6 +24,6 @@ class Pools(Resource):
 
         :param str pool_id: The pool identifier.
 
-        :returns: :class:`Pool <proxmox_api.pools.pool.Pool>`.
+        :returns: :class:`Pool <.pools.pool.Pool>`.
         """
         return Pool(self.api, pool_id)

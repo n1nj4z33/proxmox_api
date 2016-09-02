@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Module for storage resource."""
 
-from proxmox_api.resource import Resource
-from proxmox_api.nodes.storage.storage import Storage
+from .resource import Resource
+from .nodes.storage.storage import Storage
 
 
 class Storages(Resource):
@@ -10,7 +10,7 @@ class Storages(Resource):
 
     def __init__(self, api, node_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmox_api.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         """
         super(Storages, self).__init__(api)
@@ -31,6 +31,6 @@ class Storages(Resource):
 
         :param str storage_id: The storage identifier.
 
-        :returns: :class:`Storage <proxmox_api.nodes.storage.storage.Storage>`.
+        :returns: :class:`Storage <.nodes.storage.storage.Storage>`.
         """
         return Storage(self.api, self.node_id, storage_id)

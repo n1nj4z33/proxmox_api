@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for upload resource."""
 
-from proxmox_api.resource import Resource
+from .resource import Resource
 from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 
@@ -10,7 +10,7 @@ class Upload(Resource):
 
     def __init__(self, api, node_id, storage_id):
         """
-        :param obj api: :class:`ProxmoxAPI <proxmox_api.api.ProxmoxAPI>`.
+        :param obj api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param str storage_id: The storage identifier.
         """
@@ -27,7 +27,7 @@ class Upload(Resource):
         :param str filename: The name of the file to create.
         :param str filepath: Path of file for upload.
 
-        :returns: :class:`UPID <proxmox_api.nodes.tasks.upid.UPID>`.
+        :returns: :class:`UPID <.nodes.tasks.upid.UPID>`.
         """
 
         with open(filepath, "rb") as uploadfile:

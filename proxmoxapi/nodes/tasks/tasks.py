@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Module for tasks resource."""
 
-from proxmox_api.resource import Resource
-from proxmox_api.nodes.tasks.upid import UPID
+from .resource import Resource
+from .nodes.tasks.upid import UPID
 
 
 class Tasks(Resource):
@@ -10,7 +10,7 @@ class Tasks(Resource):
 
     def __init__(self, api, node_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmox_api.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         """
         super(Tasks, self).__init__(api)
@@ -30,7 +30,7 @@ class Tasks(Resource):
         Method to get task by task_id.
 
         :param str task_id: The task UPID.
-        :returns: :class:`UPID <proxmox_api.nodes.tasks.upid.UPID>`.
+        :returns: :class:`UPID <.nodes.tasks.upid.UPID>`.
         """
         return UPID(self.api, self.node_id, task_id)
 

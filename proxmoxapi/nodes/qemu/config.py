@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module for config resource."""
 
-from proxmox_api.resource import Resource
+from .resource import Resource
 
 
 class Config(Resource):
@@ -11,7 +11,7 @@ class Config(Resource):
 
     def __init__(self, api, node_id, vm_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmox_api.api.ProxmoxAPI>`.
+        :param api: :class:`ProxmoxAPI <.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param int vm_id: The (unique) ID of the VM.
         """
@@ -44,7 +44,7 @@ class Config(Resource):
 
         :param options: The instance of
             :class:`QemuVirtualMachineOptions
-            <proxmox_api.nodes.qemu.options.QemuVirtualMachineOptions>`.
+            <.nodes.qemu.options.QemuVirtualMachineOptions>`.
 
         :returns: :class:`requests.Response`.
         """

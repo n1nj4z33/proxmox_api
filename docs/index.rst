@@ -11,7 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 6
 
-   proxmoxapi
+   modules
 
 
 Indices and tables

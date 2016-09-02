@@ -48,4 +48,3 @@ class Nodes(Resource):
         """
         node_id = task_id.split(":")[1]
         return self.node(node_id)
-

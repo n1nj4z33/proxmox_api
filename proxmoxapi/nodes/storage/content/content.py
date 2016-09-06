@@ -17,7 +17,9 @@ class Content(Resource):
         super(Content, self).__init__(api)
         self.node_id = node_id
         self.storage_id = storage_id
-        self.url = "nodes/%s/storage/%s/content" % (self.node_id, self.storage_id)
+        self.url = "nodes/{node_id}/storage/{storage_id}/content".format(
+            node_id=self.node_id,
+            storage_id=self.storage_id)
 
     def _get(self):
         """

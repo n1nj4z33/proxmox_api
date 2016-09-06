@@ -18,9 +18,10 @@ class Volume(Resource):
         self.node_id = node_id
         self.storage_id = storage_id
         self.volume_id = volume_id
-        self.url = "nodes/%s/storage/%s/content/%s" % (self.node_id,
-                                                       self.storage_id,
-                                                       self.volume_id)
+        self.url = "nodes/{node_id}/storage/{storage_id}/content/{volume_id}".format( # pylint: disable=line-too-long
+            node_id=self.node_id,
+            storage_id=self.storage_id,
+            volume_id=self.volume_id)
 
     def _get(self):
         """

@@ -19,7 +19,9 @@ class VMID(Resource):
         super(VMID, self).__init__(api)
         self.node_id = node_id
         self.vm_id = vm_id
-        self.url = "nodes/%s/qemu/%s" % (self.node_id, self.vm_id)
+        self.url = "nodes/{node_id}/qemu/{vm_id}".format(
+            node_id=self.node_id,
+            vm_id=self.vm_id)
 
     def _get(self):
         """

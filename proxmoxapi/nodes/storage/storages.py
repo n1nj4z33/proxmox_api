@@ -15,7 +15,8 @@ class Storages(Resource):
         """
         super(Storages, self).__init__(api)
         self.node_id = node_id
-        self.url = "nodes/%s/storage" % self.node_id
+        self.url = "nodes/{node_id}/storage".format(
+            node_id=self.node_id)
 
     def _get(self):
         """

@@ -23,7 +23,9 @@ class UPID(Resource):
         super(UPID, self).__init__(api)
         self.node_id = node_id
         self.task_id = task_id
-        self.url = "nodes/%s/tasks/%s" % (self.node_id, self.task_id)
+        self.url = "nodes/{node_id}/tasks/{task_id}".format(
+            node_id=self.node_id,
+            task_id=self.task_id)
 
     @property
     def status(self):

@@ -14,7 +14,8 @@ class Pool(Resource):
         """
         super(Pool, self).__init__(api)
         self.pool_id = pool_id
-        self.url = "pools/%s" % self.pool_id
+        self.url = "pools/{pool_id}".format(
+            pool_id=self.pool_id)
 
     def _get(self):
         """

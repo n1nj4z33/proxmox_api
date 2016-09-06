@@ -18,7 +18,9 @@ class Config(Resource):
         super(Config, self).__init__(api)
         self.node_id = node_id
         self.vm_id = vm_id
-        self.url = "nodes/%s/qemu/%s/config" % (self.node_id, self.vm_id)
+        self.url = "nodes/{node_id}/qemu/{vm_id}/config".format(
+            node_id=self.node_id,
+            vm_id=self.vm_id)
 
     def _get(self):
         """

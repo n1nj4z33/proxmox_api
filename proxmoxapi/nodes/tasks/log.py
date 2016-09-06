@@ -16,7 +16,9 @@ class Log(Resource):
         super(Log, self).__init__(api)
         self.node_id = node_id
         self.task_id = task_id
-        self.url = "nodes/%s/tasks/%s/log" % (self.node_id, self.task_id)
+        self.url = "nodes/{node_id}/tasks/{task_id}/log".format(
+            node_id=self.node_id,
+            task_id=self.task_id)
 
     def _get(self):
         """

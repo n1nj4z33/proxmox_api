@@ -27,7 +27,9 @@ class ProxmoxAPI(object):
         :param str password: The password of a proxmox server.
         :param int port: (optional) The port of a proxmox server.
         """
-        self.base_url = "https://%s:%d/api2/json" % (host, port)
+        self.base_url = "https://{host}:{port}/api2/json".format(
+            host=host,
+            port=port)
         self.session = requests.Session()
         self.session.verify = False
         self.session.trust_env = False

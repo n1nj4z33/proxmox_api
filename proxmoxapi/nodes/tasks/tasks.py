@@ -15,7 +15,7 @@ class Tasks(Resource):
         """
         super(Tasks, self).__init__(api)
         self.node_id = node_id
-        self.url = "nodes/%s/tasks" % self.node_id
+        self.url = "nodes/{node_id}/tasks".format(node_id=self.node_id)
 
     def _get(self):
         """

@@ -17,7 +17,9 @@ class Upload(Resource):
         super(Upload, self).__init__(api)
         self.node_id = node_id
         self.storage_id = storage_id
-        self.url = "nodes/%s/storage/%s/upload" % (self.node_id, self.storage_id)
+        self.url = "nodes/{node_id}/storage/{storage_id}/upload".format(
+            node_id=self.node_id,
+            storage_id=self.storage_id)
 
     def upload(self, content_type, filename, filepath):
         """

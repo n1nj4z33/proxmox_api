@@ -17,7 +17,8 @@ class QEMU(Resource):
         """
         super(QEMU, self).__init__(api)
         self.node_id = node_id
-        self.url = "nodes/%s/qemu" % self.node_id
+        self.url = "nodes/{node_id}/qemu".format(
+            node_id=self.node_id)
 
     def _get(self):
         """

@@ -16,7 +16,9 @@ class SendKey(Resource):
         super(SendKey, self).__init__(api)
         self.node_id = node_id
         self.vm_id = vm_id
-        self.url = "nodes/%s/qemu/%s/sendkey" % (self.node_id, self.vm_id)
+        self.url = "nodes/{node_id}/qemu/{vm_id}/sendkey".format(
+            node_id=self.node_id,
+            vm_id=self.vm_id)
 
     def _put(self, key):
         """

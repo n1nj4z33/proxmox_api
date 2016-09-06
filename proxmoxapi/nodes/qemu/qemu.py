@@ -68,9 +68,9 @@ class QEMU(Resource):
                       ostype=ostype,
                       pool=pool)
         for index, device in enumerate(ide):
-            params["ide%d" % index] = device
+            params["ide{index}".format(index=index)] = device
         for index, device in enumerate(net):
-            params["net%d" % index] = device
+            params["net{index}".format(index=index)] = device
         return self.send_request("POST", params=params)
 
     def create(self, options):
@@ -94,8 +94,8 @@ class QEMU(Resource):
                                   numa=options.numa, ostype=options.ostype, pool=options.pool)
         except HTTPError as exc:
             if "already exist" in exc.message:
-                raise AlreadyExistError("Virtual machine with id %s already exists." %
-                                        options.vm_id)
+                raise AlreadyExistError("Virtual machine with id {vm_id} already exists.".format(
+                    vm_id=options.vm_id))
         task_id = response.json()["data"]
         return self.api.nodes.node(self.node_id).tasks.get_task_by_task_id(task_id)
 

@@ -67,13 +67,16 @@ class UPID(Resource):
                             self.task_id, self.node_id)
                         return
                     else:
-                        raise NodeTaskError("Task with id %s error by exit_status %s" %
-                                            (self.task_id, exit_status))
+                        raise NodeTaskError(
+                            "Task with id {task_id} error by exit_status {exit_status}".format(
+                                task_id=self.task_id,
+                                exit_status=exit_status))
             except HTTPError:
                 logger.debug("Can not find task with id %s in node %s",
                              self.task_id, self.node_id)
             time.sleep(1)
-        raise NodeTaskError("Task with id %s error by timeout" % self.task_id)
+        raise NodeTaskError("Task with id {task_id} error by timeout".format(
+            task_id=self.task_id)
 
 
 class NodeTaskError(Exception):

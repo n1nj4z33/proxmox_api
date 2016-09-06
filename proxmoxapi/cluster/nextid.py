@@ -6,6 +6,7 @@ from proxmoxapi.resource import Resource
 
 class NextID(Resource):
     """Class for cluster nextid resource."""
+    # pylint: disable=too-few-public-methods
 
     url = "cluster/nextid"
 

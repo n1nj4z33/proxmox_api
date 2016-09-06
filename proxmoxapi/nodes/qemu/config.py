@@ -5,9 +5,8 @@ from proxmoxapi.resource import Resource
 
 
 class Config(Resource):
-    """
-    Class for config resource.
-    """
+    """Class for config resource."""
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, api, node_id, vm_id):
         """

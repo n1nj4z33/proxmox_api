@@ -7,6 +7,7 @@ from proxmoxapi.access.ticket import Ticket
 
 class Access(Resource):
     """Class for access resource."""
+    # pylint: disable=too-few-public-methods
 
     url = "access"
 

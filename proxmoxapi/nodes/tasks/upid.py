@@ -76,7 +76,7 @@ class UPID(Resource):
                              self.task_id, self.node_id)
             time.sleep(1)
         raise NodeTaskError("Task with id {task_id} error by timeout".format(
-            task_id=self.task_id)
+            task_id=self.task_id))
 
 
 class NodeTaskError(Exception):

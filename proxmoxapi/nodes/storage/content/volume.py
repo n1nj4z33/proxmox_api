@@ -6,6 +6,7 @@ from proxmoxapi.resource import Resource
 
 class Volume(Resource):
     """Class for volume resource."""
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, api, node_id, storage_id, volume_id):
         """

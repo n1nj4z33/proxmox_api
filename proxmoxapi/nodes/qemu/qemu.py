@@ -28,8 +28,8 @@ class QEMU(Resource):
         """
         return self.send_request("GET")
 
-    #pylint: disable=too-many-arguments
-    #pylint: disable=too-many-locals
+    # pylint: disable=too-many-arguments
+    # pylint: disable=too-many-locals
     def _post(self, vm_id, name=None, description=None, sockets=None,
               cores=None, ide=(), net=(), memory=None, balloon=None,
               numa=None, ostype=None, pool=None):

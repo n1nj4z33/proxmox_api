@@ -6,6 +6,7 @@ from proxmoxapi.resource import Resource
 
 class Tasks(Resource):
     """Class for tasks resource."""
+    # pylint: disable=too-few-public-methods
 
     url = "cluster/tasks"
 

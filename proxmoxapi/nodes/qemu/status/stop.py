@@ -7,9 +7,8 @@ from proxmoxapi.resource import Resource
 
 
 class Stop(Resource):
-    """
-    Class for stop resource.
-    """
+    """Class for stop resource."""
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, api, node_id, vm_id):
         """

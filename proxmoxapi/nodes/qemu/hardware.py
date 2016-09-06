@@ -6,6 +6,7 @@ import proxmoxapi.nodes.qemu.constants as constants
 
 class QEMUVirtualMachineDevice(object):
     """Class for virtual machine device."""
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, storage, media):
         """
@@ -23,6 +24,7 @@ class QEMUVirtualMachineDevice(object):
 
 class QEMUVirtualMachineCDROM(QEMUVirtualMachineDevice):
     """Class for virtual machine CDROM device."""
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, storage, iso_path):
         """

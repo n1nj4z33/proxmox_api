@@ -7,6 +7,7 @@ from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 class Upload(Resource):
     """Class for storage resource."""
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, api, node_id, storage_id):
         """

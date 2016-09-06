@@ -6,6 +6,7 @@ from proxmoxapi.resource import Resource
 
 class Start(Resource):
     """Class for start resource."""
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, api, node_id, vm_id):
         """

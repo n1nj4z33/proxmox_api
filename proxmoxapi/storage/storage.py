@@ -6,6 +6,7 @@ from proxmoxapi.resource import Resource
 
 class Storage(Resource):
     """Class for storage resource."""
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, api, storage_id):
         """

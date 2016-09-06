@@ -7,6 +7,7 @@ from proxmoxapi.storage.storage import Storage
 
 class Storages(Resource):
     """Class for storages resource."""
+    # pylint: disable=too-few-public-methods
 
     url = "storage"
 

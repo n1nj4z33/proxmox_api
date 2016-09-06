@@ -9,8 +9,9 @@ _OSTYPE = "l26"
 class QemuVirtualMachineOptions(object):
     """Class for qemu virtual machine options."""
 
-    #pylint: disable=too-many-instance-attributes
-    #pylint: disable=too-many-arguments
+    # pylint: disable=too-many-instance-attributes
+    # pylint: disable=too-many-arguments
+    # pylint: disable=too-few-public-methods
     def __init__(self, vm_id, name, node, pool, storage):
         """
         :param int vm_id: The (unique) ID of the VM.

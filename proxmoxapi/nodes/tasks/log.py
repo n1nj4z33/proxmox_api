@@ -6,6 +6,7 @@ from proxmoxapi.resource import Resource
 
 class Log(Resource):
     """Class for log resource."""
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, api, node_id, task_id):
         """

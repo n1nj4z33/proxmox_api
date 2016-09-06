@@ -6,6 +6,7 @@ from proxmoxapi.resource import Resource
 
 class Pool(Resource):
     """Class for pool resource."""
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, api, pool_id):
         """

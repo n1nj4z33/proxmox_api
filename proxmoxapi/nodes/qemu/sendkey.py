@@ -6,6 +6,7 @@ from proxmoxapi.resource import Resource
 
 class SendKey(Resource):
     """Class for sendkey resource."""
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, api, node_id, vm_id):
         """

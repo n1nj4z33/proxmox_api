@@ -7,6 +7,7 @@ from proxmoxapi.pools.pool import Pool
 
 class Pools(Resource):
     """Class for pools resource."""
+    # pylint: disable=too-few-public-methods
 
     url = "pools"
 

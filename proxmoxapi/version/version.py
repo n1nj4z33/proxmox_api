@@ -6,6 +6,7 @@ from proxmoxapi.resource import Resource
 
 class Version(Resource):
     """Class for version resource."""
+    # pylint: disable=too-few-public-methods
 
     url = "version"
 

@@ -56,7 +56,6 @@ class ProxmoxAPI(object):
         return '/'.join((self.base_url, resource.url))
 
     def send_request(self, resource, method, data=None, params=None, headers=None):
-        #pylint: disable=too-many-arguments
         """
         Send request to proxmox server.
 
@@ -68,6 +67,7 @@ class ProxmoxAPI(object):
 
         :returns: :class:`Response <requests.Response>`.
         """
+        # pylint: disable=too-many-arguments
         url = self.prepare_url(resource)
 
         response = self.session.request(method=method,

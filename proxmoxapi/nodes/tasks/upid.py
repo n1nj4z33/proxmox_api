@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for node upid resource."""
 
 import logging
@@ -16,7 +15,8 @@ class UPID(Resource):
 
     def __init__(self, api, node_id, task_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmoxapi.api.ProxmoxAPI>`.
+        :param api: The instance of :class:`ProxmoxAPI
+            <proxmoxapi.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param str task_id: The task UPID.
         """
@@ -29,25 +29,24 @@ class UPID(Resource):
 
     @property
     def status(self):
-        """
-        Property to get status resource.
+        """Property to get status resource.
 
-        :returns: :class:`Status <proxmoxapi.nodes.tasks.status.Status>`.
+        :returns: The instance of :class:`Status
+            <proxmoxapi.nodes.tasks.status.Status>`.
         """
         return Status(self.api, self.node_id, self.task_id)
 
     @property
     def log(self):
-        """
-        Property to get log resource.
+        """Property to get log resource.
 
-        :returns: :class:`Log <proxmoxapi.nodes.tasks.log.Log>`.
+        :returns: The instance of :class:`Log
+            <proxmoxapi.nodes.tasks.log.Log>`.
         """
         return Log(self.api, self.node_id, self.task_id)
 
     def wait_for_completion(self, timeout=None):
-        """
-        Wait for task with task_id is finished successfully.
+        """Wait for task with task_id is finished successfully.
 
         :param int timeout: (optional) The timeout to wait in seconds.
 

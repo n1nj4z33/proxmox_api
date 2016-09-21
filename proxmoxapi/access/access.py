@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for access resource."""
 
 from proxmoxapi.resource import Resource
@@ -12,18 +11,17 @@ class Access(Resource):
     url = "access"
 
     def _get(self):
-        """
-        Directory index.
+        """Directory index.
 
-        :returns: :class:`requests.Response`.
+        :returns: The instance of :class:`requests.Response`.
         """
         return self.send_request("GET")
 
     @property
     def ticket(self):
-        """
-        Property to get ticket resource.
+        """Property to get ticket resource.
 
-        :returns: :class:`Ticket <proxmoxapi.access.ticket.Ticket>`.
+        :returns: The instance of :class:`Ticket
+            <proxmoxapi.access.ticket.Ticket>`.
         """
         return Ticket(self.api)

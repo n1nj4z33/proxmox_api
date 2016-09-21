@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for node resource."""
 
 from proxmoxapi.resource import Resource
@@ -12,7 +11,8 @@ class Node(Resource):
 
     def __init__(self, api, node_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmoxapi.api.ProxmoxAPI>`.
+        :param api: The instance of :class:`ProxmoxAPI
+            <proxmoxapi.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         """
         super(Node, self).__init__(api)
@@ -21,36 +21,35 @@ class Node(Resource):
             node_id=self.node_id)
 
     def _get(self):
-        """
-        Get node index.
+        """Get node index.
 
-        :returns: :class:`requests.Response`.
+        :returns: The instance of :class:`requests.Response`.
         """
         return self.send_request("GET")
 
     @property
     def storages(self):
-        """
-        Property to get storages resource.
+        """Property to get storages resource.
 
-        :returns: :class:`Storages <proxmoxapi.nodes.node_id.storages.Storages>`.
+        :returns: The instance of :class:`Storages
+            <proxmoxapi.nodes.node_id.storages.Storages>`.
         """
         return Storages(self.api, self.node_id)
 
     @property
     def qemu(self):
-        """
-        Property to get qemu resource.
+        """Property to get qemu resource.
 
-        :returns: :class:`QEMU <proxmoxapi.nodes.qemu.qemu.QEMU>`.
+        :returns: The instance of :class:`QEMU
+            <proxmoxapi.nodes.qemu.qemu.QEMU>`.
         """
         return QEMU(self.api, self.node_id)
 
     @property
     def tasks(self):
-        """
-        Property to get tasks resource.
+        """Property to get tasks resource.
 
-        :returns: :class:`Tasks <proxmoxapi.nodes.tasks.tasks.Tasks>`.
+        :returns: The instance of :class:`Tasks
+             <proxmoxapi.nodes.tasks.tasks.Tasks>`.
         """
         return Tasks(self.api, self.node_id)

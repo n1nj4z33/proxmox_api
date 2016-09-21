@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for qemu resource."""
 
 from requests.exceptions import HTTPError
@@ -12,7 +11,8 @@ class QEMU(Resource):
 
     def __init__(self, api, node_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmoxapi.api.ProxmoxAPI>`.
+        :param api: The instance of :class:`ProxmoxAPI
+            <proxmoxapi.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         """
         super(QEMU, self).__init__(api)
@@ -21,20 +21,16 @@ class QEMU(Resource):
             node_id=self.node_id)
 
     def _get(self):
-        """
-        Qemu virtual machine index (per node).
+        """Qemu virtual machine index (per node).
 
-        :returns: :class:`requests.Response`.
+        :returns: The instance of :class:`requests.Response`.
         """
         return self.send_request("GET")
 
-    # pylint: disable=too-many-arguments
-    # pylint: disable=too-many-locals
-    def _post(self, vm_id, name=None, description=None, sockets=None,
+    def _post(self, vm_id, name=None, description=None, sockets=None, # pylint: disable=too-many-arguments, too-many-locals
               cores=None, ide=(), net=(), memory=None, balloon=None,
               numa=None, ostype=None, pool=None):
-        """
-        Create or restore a virtual machine.
+        """Create or restore a virtual machine.
 
         :param int vm_id: The (unique) ID of the VM.
         :param str name: (optional) Set a name for the VM.
@@ -55,7 +51,7 @@ class QEMU(Resource):
                            features for specific operating systems.
         :param str pool: (optional) Add the VM to the specified pool.
 
-        :returns: :class:`requests.Response`.
+        :returns: The instance of :class:`requests.Response`.
         """
         params = dict(vmid=vm_id,
                       name=name,
@@ -74,16 +70,16 @@ class QEMU(Resource):
         return self.send_request("POST", params=params)
 
     def create(self, options):
-        """
-        Create or restore a virtual machine.
+        """Create or restore a virtual machine.
 
         :param options: The instance of :class:`QemuVirtualMachineOptions
             <proxmoxapi.nodes.qemu.options.QemuVirtualMachineOptions>`.
 
-        :raises AlreadyExistError: if virtual machine exists.
-        :raises HTTPError: if other http error occurred.
+        :raises AlreadyExistError: If virtual machine exists.
+        :raises HTTPError: If other http error occurred.
 
-        :returns: :class:`UPID <.nodes.tasks.upid.UPID>`.
+        :returns: The instance of :class:`UPID
+            <proxmoxapi.nodes.tasks.upid.UPID>`.
         """
         ide = [ide_device.format_string() for ide_device in options.hdds + options.cdroms]
         net = [net_device.format_string() for net_device in options.nets]
@@ -100,12 +96,12 @@ class QEMU(Resource):
         return self.api.nodes.node(self.node_id).tasks.get_task_by_task_id(task_id)
 
     def vmid(self, vm_id):
-        """
-        Method to get vmid resource.
+        """Method to get vmid resource.
 
         :param int vm_id: The (unique) ID of the VM.
 
-        :returns: :class:`VMID <proxmoxapi.nodes.qemu.vmid.VMID>`.
+        :returns: The instance of :class:`VMID
+            <proxmoxapi.nodes.qemu.vmid.VMID>`.
         """
         return VMID(self.api, self.node_id, vm_id)
 

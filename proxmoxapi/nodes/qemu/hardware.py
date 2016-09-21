@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for virtual machine device."""
 
 import proxmoxapi.nodes.qemu.constants as constants

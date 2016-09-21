@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for cluster resource."""
 
 from proxmoxapi.resource import Resource
@@ -12,27 +11,26 @@ class Cluster(Resource):
     url = "cluster"
 
     def _get(self):
-        """
-        Cluster index.
+        """Cluster index.
 
-        :returns: :class:`requests.Response`
+        :returns: The instance of :class:`requests.Response`
         """
         return self.send_request("GET")
 
     @property
     def nextid(self):
-        """
-        Property to get nextid resource.
+        """Property to get nextid resource.
 
-        :returns: :class:`NextID <proxmoxapi.cluster.nextid.NextID>`.
+        :returns: The instance of :class:`NextID
+            <proxmoxapi.cluster.nextid.NextID>`.
         """
         return NextID(self.api)
 
     @property
     def tasks(self):
-        """
-        Property to get tasks resource.
+        """Property to get tasks resource.
 
-        :returns: :class:`Tasks <proxmoxapi.cluster.tasks.Tasks>`.
+        :returns: The instance of :class:`Tasks
+            <proxmoxapi.cluster.tasks.Tasks>`.
         """
         return Tasks(self.api)

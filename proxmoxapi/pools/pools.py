@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for pools resource."""
 
 from proxmoxapi.resource import Resource
@@ -12,19 +11,18 @@ class Pools(Resource):
     url = "pools"
 
     def _get(self):
-        """
-        Pool index.
+        """Pool index.
 
-        :returns: :class:`requests.Response`.
+        :returns: The instance of :class:`requests.Response`.
         """
         return self.send_request("GET")
 
     def pool(self, pool_id):
-        """
-        Method to get pool_id resource.
+        """Method to get pool_id resource.
 
         :param str pool_id: The pool identifier.
 
-        :returns: :class:`Pool <proxmoxapi.pools.pool.Pool>`.
+        :returns: The instance of :class:`Pool
+            <proxmoxapi.pools.pool.Pool>`.
         """
         return Pool(self.api, pool_id)

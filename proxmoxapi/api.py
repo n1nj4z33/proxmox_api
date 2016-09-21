@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for ProxmoxAPI."""
 
 import requests
@@ -55,7 +54,7 @@ class ProxmoxAPI(object):
         """
         return '/'.join((self.base_url, resource.url))
 
-    def send_request(self, resource, method, data=None, params=None, headers=None):
+    def send_request(self, resource, method, data=None, params=None, headers=None): # pylint: disable=too-many-arguments
         """
         Send request to proxmox server.
 
@@ -67,7 +66,6 @@ class ProxmoxAPI(object):
 
         :returns: :class:`Response <requests.Response>`.
         """
-        # pylint: disable=too-many-arguments
         url = self.prepare_url(resource)
 
         response = self.session.request(method=method,
@@ -88,54 +86,54 @@ class ProxmoxAPI(object):
 
     @property
     def version(self):
-        """
-        Property for get version resource.
+        """Property for get version resource.
 
-        :returns: :class:`Version <proxmoxapi.version.version.Version>`.
+        :returns: The instance of :class:`Version
+            <proxmoxapi.version.version.Version>`.
         """
         return Version(self)
 
     @property
     def access(self):
-        """
-        Property for get access resource.
+        """Property for get access resource.
 
-        :returns: :class:`Access <proxmoxapi.access.access.Access>`.
+        :returns: The instance of :class:`Access
+            <proxmoxapi.access.access.Access>`.
         """
         return Access(self)
 
     @property
     def cluster(self):
-        """
-        Property for get cluster resource.
+        """Property for get cluster resource.
 
-        :returns: :class:`Cluster <proxmoxapi.cluster.cluster.Cluster>`.
+        :returns: The instance of :class:`Cluster
+            <proxmoxapi.cluster.cluster.Cluster>`.
         """
         return Cluster(self)
 
     @property
     def nodes(self):
-        """
-        Property for get nodes resource.
+        """Property for get nodes resource.
 
-        :returns: :class:`Nodes <proxmoxapi.nodes.nodes.Nodes>`.
+        :returns: The instance of :class:`Nodes
+            <proxmoxapi.nodes.nodes.Nodes>`.
         """
         return Nodes(self)
 
     @property
     def pools(self):
-        """
-        Property for get pools resource.
+        """Property for get pools resource.
 
-        :returns: :class:`Pools <proxmoxapi.pools.pools.Pools>`.
+        :returns: The instance of :class:`Pools
+            <proxmoxapi.pools.pools.Pools>`.
         """
         return Pools(self)
 
     @property
     def storages(self):
-        """
-        Property for get storage resource.
+        """Property for get storage resource.
 
-        :returns: :class:`Storages <proxmoxapi.storage.storages.Storages>`.
+        :returns: The instance of :class:`Storages
+            <proxmoxapi.storage.storages.Storages>`.
         """
         return Storages(self)

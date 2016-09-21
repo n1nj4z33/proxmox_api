@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for log resource."""
 
 from proxmoxapi.resource import Resource
@@ -10,7 +9,8 @@ class Log(Resource):
 
     def __init__(self, api, node_id, task_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmoxapi.api.ProxmoxAPI>`.
+        :param api: The instance of :class:`ProxmoxAPI
+            <proxmoxapi.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param str task_id: The task UPID.
         """
@@ -22,9 +22,8 @@ class Log(Resource):
             task_id=self.task_id)
 
     def _get(self):
-        """
-        Read task log.
+        """Read task log.
 
-        :returns: :class:`requests.Response`.
+        :returns: The instance of :class:`requests.Response`.
         """
         return self.send_request("GET")

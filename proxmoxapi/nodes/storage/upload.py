@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for upload resource."""
 
 from proxmoxapi.resource import Resource
@@ -11,7 +10,8 @@ class Upload(Resource):
 
     def __init__(self, api, node_id, storage_id):
         """
-        :param obj api: :class:`ProxmoxAPI <proxmoxapi.api.ProxmoxAPI>`.
+        :param api: The instance of :class:`ProxmoxAPI
+            <proxmoxapi.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param str storage_id: The storage identifier.
         """
@@ -23,14 +23,14 @@ class Upload(Resource):
             storage_id=self.storage_id)
 
     def upload(self, content_type, filename, filepath):
-        """
-        Upload templates and iso images.
+        """Upload templates and iso images.
 
         :param str content_type: Content type.
         :param str filename: The name of the file to create.
         :param str filepath: Path of file for upload.
 
-        :returns: :class:`UPID <proxmoxapi.nodes.tasks.upid.UPID>`.
+        :returns: The instance of :class:`UPID
+            <proxmoxapi.nodes.tasks.upid.UPID>`.
         """
 
         with open(filepath, "rb") as uploadfile:

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 A python wrapper for the Proxmox 2.x API
 For more information see http://pve.proxmox.com/pve2-api-doc/

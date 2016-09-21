@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for tasks resource."""
 
 from proxmoxapi.resource import Resource
@@ -10,7 +9,8 @@ class Tasks(Resource):
 
     def __init__(self, api, node_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmoxapi.api.ProxmoxAPI>`.
+        :param api: The instance of :class:`ProxmoxAPI
+            <proxmoxapi.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         """
         super(Tasks, self).__init__(api)
@@ -18,19 +18,18 @@ class Tasks(Resource):
         self.url = "nodes/{node_id}/tasks".format(node_id=self.node_id)
 
     def _get(self):
-        """
-        Read task list for one node (finished tasks).
+        """Read task list for one node (finished tasks).
 
-        :returns: :class:`requests.Response`.
+        :returns: The instance of :class:`requests.Response`.
         """
         return self.send_request("GET")
 
     def upid(self, task_id):
-        """
-        Method to get task by task_id.
+        """Method to get task by task_id.
 
         :param str task_id: The task UPID.
-        :returns: :class:`UPID <proxmoxapi.nodes.tasks.upid.UPID>`.
+        :returns: The instance of :class:`UPID
+            <proxmoxapi.nodes.tasks.upid.UPID>`.
         """
         return UPID(self.api, self.node_id, task_id)
 

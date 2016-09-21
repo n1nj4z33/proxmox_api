@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Proxmox tasks constants."""
 
 TASK_STATUS_RUNNING = "running"

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for volume resource."""
 
 from proxmoxapi.resource import Resource
@@ -10,7 +9,8 @@ class Volume(Resource):
 
     def __init__(self, api, node_id, storage_id, volume_id):
         """
-        :param api: :class:`ProxmoxAPI <proxmoxapi.api.ProxmoxAPI>`.
+        :param api: The instance of :class:`ProxmoxAPI
+            <proxmoxapi.api.ProxmoxAPI>`.
         :param str node_id: The cluster node name.
         :param str storage_id: The storage identifier.
         :param str volume_id: The volume identifier.
@@ -25,9 +25,8 @@ class Volume(Resource):
             volume_id=self.volume_id)
 
     def _get(self):
-        """
-        Get volume attributes.
+        """Get volume attributes.
 
-        :returns: :class:`requests.Response`.
+        :returns: The instance of :class:`requests.Response`.
         """
         return self.send_request("GET")

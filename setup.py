@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """The Proxmox API package setup."""
 from setuptools import (setup, find_packages)
 

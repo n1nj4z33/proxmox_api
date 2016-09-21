@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Proxmox qemu virtual machine constants."""
 
 MEDIA_HDD = "disk"

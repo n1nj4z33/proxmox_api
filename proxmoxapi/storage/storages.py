@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for storages resource."""
 
 from proxmoxapi.resource import Resource
@@ -12,19 +11,18 @@ class Storages(Resource):
     url = "storage"
 
     def _get(self):
-        """
-        Storage index.
+        """Storage index.
 
-        :returns: :class:`requests.Response`.
+        :returns: The instance of :class:`requests.Response`.
         """
         return self.send_request("GET")
 
     def storage(self, storage_id):
-        """
-        Method to get storage resource.
+        """Method to get storage resource.
 
         :param str storage_id: The storage identifier.
 
-        :returns: :class:`Storage <proxmoxapi.storage.storage.Storage>`.
+        :returns: The instance of :class:`Storage
+            <proxmoxapi.storage.storage.Storage>`.
         """
         return Storage(self.api, storage_id)

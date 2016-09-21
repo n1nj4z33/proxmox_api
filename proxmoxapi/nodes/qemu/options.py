@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for qemu virtual machine options."""
 
 _MEMORY_BALLOON = 8192
@@ -8,11 +7,9 @@ _OSTYPE = "l26"
 
 class QemuVirtualMachineOptions(object):
     """Class for qemu virtual machine options."""
+    # pylint: disable=too-few-public-methods, too-many-instance-attributes
 
-    # pylint: disable=too-many-instance-attributes
-    # pylint: disable=too-many-arguments
-    # pylint: disable=too-few-public-methods
-    def __init__(self, vm_id, name, node, pool, storage):
+    def __init__(self, vm_id, name, node, pool, storage): # pylint: disable=too-many-arguments
         """
         :param int vm_id: The (unique) ID of the VM.
         :param str name: The name of a virtual machine.

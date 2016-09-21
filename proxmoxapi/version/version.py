@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Module for version resource."""
 
 from proxmoxapi.resource import Resource
@@ -11,9 +10,9 @@ class Version(Resource):
     url = "version"
 
     def _get(self):
-        """
-        API version details. The result also includes the global datacenter confguration.
+        """API version details.
+        The result also includes the global datacenter confguration.
 
-        :returns: :class:`requests.Response`.
+        :returns: The instance of :class:`requests.Response`.
         """
         return self.send_request("GET")

@@ -10,7 +10,7 @@ For more information see https://pve.proxmox.com/
 
 Auto generated Sphinx documentation you can  find [here](http://proxmoxapi.readthedocs.io/).
 
-### Installation and dependency
+### Installation
 ```
-sudo pip install -r requirements.txt
+pip install proxmoxapi
 ```

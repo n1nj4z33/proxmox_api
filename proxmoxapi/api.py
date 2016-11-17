@@ -1,4 +1,4 @@
-"""Module for ProxmoxAPI."""
+"""Module for Proxmox API."""
 
 import requests
 
